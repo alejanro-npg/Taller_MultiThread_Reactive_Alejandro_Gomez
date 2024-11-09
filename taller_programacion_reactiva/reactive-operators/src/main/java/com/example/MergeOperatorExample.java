@@ -1,0 +1,23 @@
+package com.example;
+
+import io.reactivex.Observable;
+import reactor.core.publisher.Flux;
+
+
+public class MergeOperatorExample {
+    public static void main(String[] args) {
+        Observable<Integer> observable1 = Observable.just(1, 3, 5);
+        Observable<Integer> observable2 = Observable.just(2, 4, 6);
+
+        Observable.merge(observable1, observable2)
+                .subscribe(System.out::println);
+
+        System.out.println("Ejemplo de operadores");
+
+        Flux<Integer> flux1 = Flux.just(1, 3, 5);
+        Flux<Integer> flux2 = Flux.just(2, 4, 6);
+
+        Flux.merge(flux1, flux2)
+                .subscribe(System.out::println);
+    }
+}
